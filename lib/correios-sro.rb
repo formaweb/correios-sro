@@ -10,8 +10,7 @@ class CorreiosSRO
     @xml = open("http://correios-api.appspot.com/yql?numero=#{number}")
     track = Track.new(number)
 
-    status = self.parse(track)
-    track << status if not status.nil?
+    self.parse(track)
 
     return track
   end
@@ -20,8 +19,8 @@ class CorreiosSRO
   def self.parse(track)
     xml = Nokogiri::XML(@xml)
 
-    xml.xpath('/results/status').map do |value|
-      status = Status.new.tap { |s|
+    xml.xpath('/results/status').each do |value|
+      track << Status.new.tap { |s|
         s.date = value.search('data').inner_text
         s.place = value.search('local').inner_text
         s.track = value.search('situacao').inner_text
