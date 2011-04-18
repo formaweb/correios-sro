@@ -1,2 +1,35 @@
-== Welcome to Correios SRO
+= Correios SRO
+
 Tracking object system from Correios (Brazil)
+
+== Install
+
+  gem install correios-sro
+
+
+== Use
+
+=== Synopsis
+
+  require 'correios-sro'
+
+  package = CorreiosSRO.track('SS987654321BR')
+  package.number
+  package.status.each do |status|
+    puts status.date
+    puts status.place
+    puts status.track
+    puts status.details
+  end
+
+
+=== First or Last
+
+  package = CorreiosSRO.track('SS987654321BR')
+  puts package.first.date
+  puts package.last.date
+
+
+== Contributing
+
+* {QaDeS}{https://github.com/QaDeS}
