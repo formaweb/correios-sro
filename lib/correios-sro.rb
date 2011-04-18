@@ -1,6 +1,7 @@
 require "rubygems"
 require "nokogiri"
 require "open-uri"
+require "date"
 require "track"
 require "status"
 
@@ -21,7 +22,7 @@ class CorreiosSRO
 
     xml.xpath('/results/status').each do |value|
       track << Status.new.tap { |s|
-        s.date = value.search('data').inner_text
+        s.date = DateTime.strptime(value.search('data').inner_text, '%d/%m/%Y %H:%M')
         s.place = value.search('local').inner_text
         s.track = value.search('situacao').inner_text
         s.details = value.search('detalhes').inner_text
@@ -30,3 +31,6 @@ class CorreiosSRO
   end
 
 end
+
+package = CorreiosSRO.track('RA090978804CN')
+puts package.last.place
