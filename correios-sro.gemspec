@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'correios-sro'
-  s.version = '0.9.9'
+  s.version = '1.0.0'
   s.summary = %q{Tracking object system from Correios (Brazil).}
   s.description = %q{Tracking object system from Correios (Brazil).}
   s.authors = ['Caio Tarifa']

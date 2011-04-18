@@ -31,6 +31,3 @@ class CorreiosSRO
   end
 
 end
-
-package = CorreiosSRO.track('RA090978804CN')
-puts package.last.place

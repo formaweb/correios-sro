@@ -11,6 +11,7 @@ Tracking object system from Correios (Brazil)
 
 === Synopsis
 
+  require 'rubygems'
   require 'correios-sro'
 
   package = CorreiosSRO.track('SS987654321BR')
@@ -33,3 +34,8 @@ Tracking object system from Correios (Brazil)
 == Contributing
 
 * {QaDeS}[https://github.com/QaDeS]
+
+
+== Notes
+
+As always, pull requests are always welcome. If you have any issues or feature requests, please {open an issue}[https://github.com/caiotarifa/correios-sro/issues].
