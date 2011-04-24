@@ -19,7 +19,7 @@ Tracking object system from Correios (Brazil)
   package.status.each do |status|
     puts status.date
     puts status.place
-    puts status.track
+    puts status.status
     puts status.details
   end
 
