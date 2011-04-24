@@ -27,7 +27,7 @@ class CorreiosSRO
       track << Status.new.tap { |s|
         s.date = DateTime.strptime(value.search('data').inner_text, '%d/%m/%Y %H:%M')
         s.place = value.search('local').inner_text
-        s.status = value.search('situacao').inner_text
+        s.track = value.search('situacao').inner_text
         s.details = value.search('detalhes').inner_text
       }
     end
