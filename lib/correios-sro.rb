@@ -37,3 +37,9 @@ class CorreiosSRO
   end
 
 end
+
+package = CorreiosSRO.track('RA090978804CN')
+if package
+  puts package.first.date
+  puts package.last.date
+end

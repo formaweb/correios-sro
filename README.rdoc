@@ -14,7 +14,7 @@ Tracking object system from Correios (Brazil)
   require 'rubygems'
   require 'correios-sro'
 
-  package = CorreiosSRO.track('RA090978804CN')
+  package = CorreiosSRO.track('SS987654321BR')
   if package
     puts package.number
     package.status.each do |status|
