@@ -1,17 +1,16 @@
 require "rubygems"
-require "nokogiri"
-require "open-uri"
 require "date"
+require "open-uri"
+require "nokogiri"
 require "track"
 require "status"
 
 class CorreiosSRO
 
   def self.track(number)
-    @xml = open("http://correios-api.appspot.com/yql?numero=#{number}")
-    @xml = Nokogiri::XML(@xml)
+    @html = Nokogiri::HTML(open("http://websro.correios.com.br/sro_bin/txect01$.QueryList?P_LINGUA=001&P_TIPO=001&P_COD_UNI=#{number}"))
 
-    if @xml.xpath('/results/status').count > 0
+    if @html.xpath("//tr").count > 0
       track = Track.new(number)
       self.parse(track)
 
@@ -23,14 +22,18 @@ class CorreiosSRO
 
   private
   def self.parse(track)
-    @xml.xpath('/results/status').each do |value|
-      track << Status.new.tap { |s|
-        s.date = DateTime.strptime(value.search('data').inner_text, '%d/%m/%Y %H:%M')
-        s.place = value.search('local').inner_text
-        s.track = value.search('situacao').inner_text
-        s.details = value.search('detalhes').inner_text
-      }
+
+    @html.xpath("//tr[position() > 1]").each do |row|
+      if row.search("td").count > 1
+        track << Status.new.tap { |s|
+          s.date = DateTime.strptime(row.search("td[@rowspan][1]").text.strip, "%d/%m/%Y %H:%M")
+          s.place = row.search("td[2]").text.strip
+          s.track = row.search("td[3]").text.strip
+          s.details = row.search(".//following-sibling::tr[1]").text.strip if row.search("td[@rowspan='2'][1]").count > 0
+        }
+      end
     end
+
   end
 
 end

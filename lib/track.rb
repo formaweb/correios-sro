@@ -12,12 +12,5 @@ class Track
       a.date <=> b.date
     end
   end
-  
-  def first
-    @status.first
-  end
-  
-  def last
-    @status.last
-  end
+
 end

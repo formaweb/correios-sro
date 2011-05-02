@@ -14,21 +14,25 @@ Tracking object system from Correios (Brazil)
   require 'rubygems'
   require 'correios-sro'
 
-  package = CorreiosSRO.track('SS987654321BR')
-  package.number
-  package.status.each do |status|
-    puts status.date
-    puts status.place
-    puts status.track
-    puts status.details
+  package = CorreiosSRO.track('RA090978804CN')
+  if package
+    puts package.number
+    package.status.each do |status|
+      puts status.date
+      puts status.place
+      puts status.track
+      puts status.details
+    end
   end
 
 
 === First or Last
 
   package = CorreiosSRO.track('SS987654321BR')
-  puts package.first.date
-  puts package.last.date
+  if package
+    puts package.first.date
+    puts package.last.date
+  end
 
 
 == Contributing
