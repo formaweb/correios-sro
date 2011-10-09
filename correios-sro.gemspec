@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.version = '2.0.2'
   s.summary = %q{Tracking object system from Correios (Brazil).}
   s.description = %q{Tracking object system from Correios (Brazil).}
-  s.authors = ['Caio Tarifa']
-  s.email = 'contato@caiotarifa.com'
+  s.authors = ['Formaweb']
+  s.email = 'tecnologia@formaweb.com.br'
   s.homepage = 'http://github.com/caiotarifa/correios-sro'
 
   s.rdoc_options = ["--charset=UTF-8"]

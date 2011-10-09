@@ -1,6 +1,6 @@
 = Correios SRO
 
-Tracking object system from Correios (Brazil)
+Tracking object system from Correios (Brazil).
 
 == Install
 
