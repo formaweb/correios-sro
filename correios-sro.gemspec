@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = %q{Tracking object system from Correios (Brazil).}
   s.authors = ['Formaweb']
   s.email = 'tecnologia@formaweb.com.br'
-  s.homepage = 'http://github.com/caiotarifa/correios-sro'
+  s.homepage = 'http://github.com/formaweb/correios-sro'
 
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = ["README.rdoc"]
