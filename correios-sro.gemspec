@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'correios-sro'
-  s.version = '2.0.3'
+  s.version = '2.0.4'
   s.summary = %q{Tracking object system from Correios (Brazil).}
   s.description = %q{Tracking object system from Correios (Brazil).}
   s.authors = ['Formaweb']
@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.files = Dir['README.rdoc', 'LICENSE', 'lib/**/*', 'spec/**/*']
   s.require_path = ['lib']
 
-  s.add_dependency('nokogiri', '~> 1.4.4')
+  s.add_dependency('nokogiri', '~> 1.5.0')
 end
