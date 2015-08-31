@@ -1,17 +1,25 @@
-Gem::Specification.new do |s|
-  s.name = 'correios-sro'
-  s.version = '2.0.4'
-  s.summary = %q{Tracking object system from Correios (Brazil).}
-  s.description = %q{Tracking object system from Correios (Brazil).}
-  s.authors = ['Formaweb']
-  s.email = 'tecnologia@formaweb.com.br'
-  s.homepage = 'http://github.com/formaweb/correios-sro'
+# coding: utf-8
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'correios_sro/version'
 
-  s.rdoc_options = ["--charset=UTF-8"]
-  s.extra_rdoc_files = ["README.rdoc"]
+Gem::Specification.new do |spec|
+  spec.name          = "correios-sro"
+  spec.version       = CorreiosSRO::VERSION
+  spec.authors       = ["Caio Tarifa"]
+  spec.email         = ["caio@formaweb.com.br"]
+  spec.summary       = %q{Tracking object system from Correios (Brazil).}
+  spec.description   = %q{Tracking object system from Correios (Brazil).}
+  spec.homepage      = "https://github.com/formaweb/correios-sro"
+  spec.license       = "MIT"
 
-  s.files = Dir['README.rdoc', 'LICENSE', 'lib/**/*', 'spec/**/*']
-  s.require_path = ['lib']
+  spec.files         = `git ls-files -z`.split("\x0")
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib"]
 
-  s.add_dependency('nokogiri', '~> 1.5.0')
+  spec.add_dependency "nokogiri"
+
+  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "rake"
 end
