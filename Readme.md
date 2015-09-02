@@ -1,5 +1,7 @@
 # Correios SRO
 
+*Procurando pela documentação em português? [Leia aqui](https://github.com/formaweb/correios-sro/blob/master/Readme_pt-BR.md).*
+
 Tracking object system from Correios (Brazil).
 
 ## Installation
@@ -21,7 +23,7 @@ Or install it yourself as:
 ### Basic
 
 ```ruby
-package = CorreiosSRO.track('SS987654321BR')
+package = CorreiosSRO.track('SS987654321XX')
 
 if package
   puts package.number
