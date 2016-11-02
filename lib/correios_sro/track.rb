@@ -21,5 +21,9 @@ module CorreiosSRO
       def last
         @status.last
       end
+
+      def arrived?
+        @status.last.track == "Entrega Efetuada"
+      end
   end
 end
